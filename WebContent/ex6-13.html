@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+   var url1 = 'http://localhost:8080/mysite2?n=안" 대"혁!&e=kickscar@gmail.com';
+   
+   url2 = escape(url1)// Deprecated
+   console.log(url2);
+   
+   // encodeURI 사용
+   url3 = encodeURI(url1)
+   console.log(url3);
+   
+   var url = 'http://localhost:8080/mysite2';
+   var name = '최"기"석!';
+   
+   // encodeURIComponent 사용
+   // 하나의 파마미터의 값(= 컴포넌트)을 보내고 싶을 때
+   // 한글에 대해서 encoding 시켜야 하는 경우가 생길 때 사용한다.
+   url4 = url + "?n=" + encodeURIComponent(name);
+   console.log(url4);
+   
+   
+   // 타이머 설정1 - 한 번만 실행
+   setTimeout(function() {
+      console.log("redirect");
+      //location.href = url3;
+   }, 1000 * 3);
+
+   // 타이머 설정2 - 여러번 실행되게 할 때 (interval)
+   var num = 0;
+   var intervalId = setInterval(function() {
+      //console.log(++num);
+      if (num == 10) {
+         clearInterval(intervalId);
+      }
+   }, 1000);
+</script>
+</head>
+<body>
+
+</body>
+</html>

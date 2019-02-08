@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//함수 파라미터
+	// var f = function(arg1, arg2, arg3){
+	// 	console.log(arg1);
+	// 	console.log(arg2.name);
+	// 	arg3();
+	// };
+
+	var f = function() {
+		console.log(arguments[0]);
+		console.log(arguments[1].name);
+		arguments[2]();
+	};
+
+	var sum = function() {
+		var sum = 0;
+		for(var i = 0; i < arguments.length; i++)
+			sum += arguments[i];
+
+		return sum;
+	};
+
+	console.log( sum(10, 20));
+	console.log( sum(10, 20, 30));
+
+	
+	// f(10, {
+	// 	name: "둘리",
+	// 	age: 20
+	// }, () => {
+	// 	console.log("hello world");
+	// });
+
+	// anonymous function 정의
+	(function() {
+		console.log(arguments[0]);
+		console.log(arguments[1].name);
+		arguments[2]();
+	})(10, {
+		name: "둘리",
+		age: 20
+	}, () => {
+		console.log("hello world");
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

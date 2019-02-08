@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+
+var number = 5;
+var number2 = new Number(5);
+
+console.log(number + " " + typeof number);
+console.log(number2 + " " + typeof number2);
+console.log(number + number2);
+
+// 내장객체(number, boolean, String, Function)는 확장 되지 않는다.
+number.myVal = 20;
+console.log(number.myVal);
+
+// Object 타입의 객체는 확장이 가능하다.
+number2.myVal = 20;
+console.log(number2.myVal);
+
+var pi = 3.14;
+console.log(pi + ":" + typeof pi);
+
+var str = "Hello World";
+console.log(str + ":" + typeof str);
+
+var str2 = new String("Hello World");
+console.log(str2 + ":" + typeof str2);
+
+var b = false;
+console.log(b + ":" + typeof b);
+
+var b = new Boolean(false);
+console.log(b + ":" + typeof b2);
+
+var f = function(){
+	console.log(f + ":" + typeof b);
+}
+
+// 이렇게도 사용할수있다 Function 생성자함수 
+var f2 = new Function("x", "y", "return x + y");
+
+console.log(typeof f2);
+
+var f2 = function(x, y){
+	return x + y;
+}
+
+console.log(f + ":" + typeof f);
+console.log(f2(10, 20) + ":" + typeof f2);
+
+var a = [];
+console.log(a + ":" + typeof a);
+
+var a2 = new Array();
+console.log(a2 + ":" + typeof a2);
+
+var o = {};
+console.log(o + ":" + typeof o);
+
+var o2 = new Object();
+console.log(o2 + ":" + typeof o2);
+
+// console 객체
+console.log("로그입니다");
+console.warn("경고입니다.");
+console.error("에러입니다.");
+console.info("정보입니다");
+
+o3 = new f();
+console.log(o3);
+
+
+</script>
+</head>
+<body>
+<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">클릭하세요!</div>
+</body>
+</html> 

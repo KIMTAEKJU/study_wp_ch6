@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script>
+	// null vs undefined
+	var myVar;
+	var myVar2 = null;
+
+	console.log(myVar + ":" + myVar2);
+	console.log(myVar == myVar2); 
+	console.log(myVar === myVar2); // 타입까지 확실히 검사
+
+	console.log("2" == 2); // 자동으로 캐스팅해줘서 비교가능
+	console.log(parseInt("2") == 2); // 명확하게 해주는게 좋음
+	console.log("2" === 2);
+	console.log(parseInt("2") === 2); // 명확하게 해주는게 좋음\
+	
+	// == (!=, equality, 값의 등치성, 형변환 o)	
+	console.log("2" == 2);
+	console.log(true == 1);
+	console.log('abc' == new String('abc'));
+	console.log(0 == false);
+	
+	// === (!==, identity, 객체의 동일성, 형변환x)
+	console.log("2" === 2);
+	
+	// 추천 : == 연산자를 사용할때는 엄격하게 형변환을 해서 두 피연산자의 타입을 맞춘다
+	console.log(parseInt("5") == 5);
+	
+	
+	// 변수 범위(var 사용 유무, 변수의 범위는 함수)
+	i = 10;
+	
+	f = function() {
+		// 함수안에서 var를 사용해서 변수를 정의하면 지역변수가 된다.
+		var i = 20;
+		console.log(i);
+		// 결론은 무조건 var를 사용해서 변수를 정의한다.  if문 안에서는 안된다
+		i = i - 10;
+	};
+	
+	f();
+	console.log(i);
+	
+	// statement 구분
+	// statement : JS Engine이 읽어서 실행하는 단위
+	// \n or ;(세미콜론) 단위로 읽어서 실행
+	
+	var str = "hello world"
+	console.log(str);
+	
+	// 동적 타이핑(Dynamical Typing)
+	// 실행중에 변수의 타입을 결정한다
+	var a = 10; 
+	console.log(a + ":" + typeof a);
+	
+	a = "Hello World";
+	console.log(a + ":" + typeof a);
+	
+	// 동적 타이핑이 된다해서 쓰는걸 추천하지않는다
+	// 추천 : 엄격하게 하나의 변수 타입은 변경하지않도록 코딩.
+	
+	
+	// 전역(global) 객체 window
+	console.log(window.a); // 윈도우라는 전역객체의 네임스페이스 안에 a가 있다  원래는 window.a로 접근해야하지만 window 생략
+	
+	var o = {};  // 네임스페이스 존재
+	o.name = "둘리"; // 더이상 확장불가능 내장객체는 확장 x
+	o.age = new Number(20); // 네임스페이스 존재 Number로 객체로 만듬
+	o.age.man = 19; // 더이상 확장불가능 내장객체는 확장 x
+	
+	console.log(window.o);
+	console.log(window.o.name);
+	console.log(window.o.age);
+	console.log(window.o.age.man);
+	
+	console.log(o);
+	console.log(o.name);
+	console.log(o.age);
+	console.log(o.age.man);
+	
+	
+	
+	//전역 변수라는건 없고 윈도우 객체의 속성들?
+	// 스크립터 언어는 변수는 그냥 이름이다
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

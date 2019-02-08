@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 배열 정의, 배열 값 저장
+	var a1 = new Array(10);
+	a1[0] = 0;
+	a1[9] = 9;
+	
+	console.log(`a1 length : ${a1.length}`);
+	
+	// 동적으로 크기가 변하는 배열
+	// new Array(size) : size를 주는 것은 별다르게 의미가 없다 내부적으로는 의미가있다  사이즈를 주고 저장하면 안늘려도되니까 속도면에서는 사이즈주는게 좋다
+	// 기본 사이즈를 주고 시작하면 성능 향상
+	a1[10] = 10;
+	console.log(a1);
+	
+	var a2 = [];
+	console.log(`a2 length : ${a2.length}`);
+	a2[0] = 10;
+	a2[1] = "Hello World";
+	a2[2] = false;
+	a2[3] = {
+		name: "둘리"
+	};
+	
+	console.log(a2);
+	
+	// 초기화
+	var a3 = [1, "ABC", true];
+	console.log(a3);
+	
+	var a4 = new Array(1, "ABC", true);
+	console.log(a4);
+	
+	//  순회
+	for (var i = 0; i < a4.length; i++)
+	{
+		console.log(a4[i]);
+	}
+	
+	var colors = ["black", "white", "yellow"];
+	var fruits = ["apple", "banana", "mango"];
+	
+	// 배열함수 concat
+	var test = fruits.concat(colors);
+	
+	console.log(test);
+	console.log(fruits);
+	
+	// 배열함수 join
+	var str = fruits.join(",");
+	console.log(str);
+	
+	// 배열함수 pop
+	var color = colors.pop();
+	console.log(color);
+	console.log(colors);
+	
+	// 배열함수 push(stack)
+	colors.push("red");
+	console.log(colors);
+	
+	// 배열함수 reverse
+	fruits.reverse();
+	console.log(fruits);
+	
+	// 배열함수 - shift
+	var numbers = [1000, 2000, 3000, 4000, 5000];
+	numbers.shift();
+	console.log(numbers);
+	
+	// 배열함수 slice
+	 
+	
+	// 배열 확장
+	Array.prototype.remove = function(index) {
+		this.splice(index, 1);
+	};
+	
+	Array.prototype.insert = function(index, value)
+	{
+		this.splice(index, 0, value);
+	}
+	
+	var array1 = [1, 2, 3, 4, 5, 6];
+	array1.remove(2);
+	console.log(array1);
+	
+	const doAdd = function(num1, num2) {
+		num2 = 10;
+		alert(arguments[1]);
+	};
+	
+	doAdd(1, 2);
+</script>
+</head>
+<body>
+
+</body>
+</html>
