@@ -4,43 +4,78 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<script type="text/javascript" src="browser-detect.js"></script>
 <script type="text/javascript">
 
-window.onunload = function(){
-	alert("!");	
-}
+	var displayDate = function(){
+		pEl.innerHTML = new Date();
+	}
+	
+	window.onload = function(){
+		var btnEl = document.getElementById("my-btn");
+		pEl = document.getElementById("demo");
 
-function onUnload = function(){
-	alert("진짜 나갈래?");	
-} 
+		// btnEl.onclick = function(){
+		// 	pEl.innerHTML = new Date();
 
-function onLoad(){
-	var btn = document.getElementById("myBtn");
-	btn.onclick = displayDate;
-	btn.onmouseover = displayDate;
-	btn.onmouseout = hideDate;	
-}
+		// };
 
-function displayDate(){
-   document.getElementById("demo").innerHTML = Date();
-}
+		// pEl.onmouseover = function(){
+		// 	pEl.innerHTML = new Date();
+		// };
 
-function hideDate(){
-   document.getElementById("demo").innerHTML = "";
-}
+		// pEl.onmouseout = function(){
+		// 	pEl.innerHTML = "";
+		// 	console.log("%$#%$");
+		// }
+
+		btnEl.onclick = displayDate;
+		pEl.onmouseover = displayDate;
+
+
+	}
+	
+	window.onload = function(){
+		// navigator -> BOM (Browser Object Mdoel)
+		// document -> DOM
+		// 위 2개는 ECMA스크립트에는 없다
+		
+		BrowserDetect.init();
+		
+		console.log(BrowserDetect.browser + ":" +
+					BrowserDetect.version + ":"
+					);
+		// 브라우저 종류를 알아내는 내장객체 navigator의 문자열
+		console.log(navigator.userAgent + ":" +
+			navigator.appVersion + ":" +
+			navigator.vendor + ":" +
+			navigator.platform);
+		
+		// 쿠키 체크 (쿠키를 허용안하면 로그인이안됨)
+		if (navigator.cookieEnabled){
+			console.log("쿠키를 사용할수있습니다");
+		} else{
+			console.log("쿠키를 사용할수없습니다");
+		}
+
+	}
+
+	window.onunload = function(){
+		console.log("12@#$#@");
+	}
 
 
 </script>
 
 </head>
 
-<body onload="onLoad()" onunload="onUnload()">
+<body>
 
-<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
+	<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
 
-<button id="myBtn">Try it</button>
+	<button id="my-btn">Try it</button>
 
-<p id="demo"></p>
+	<p id="demo"></p>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ var BrowserDetect = {
 				|| this.searchVersion(navigator.appVersion)
 				|| "an unknown version";
 			this.OS = this.searchString(this.dataOS) || "an unknown OS";
+			console.log("실행됨");
 		},
 		searchString: function (data) {
 			for (var i=0;i<data.length;i++)	{

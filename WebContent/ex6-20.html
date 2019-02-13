@@ -3,28 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
+<style type="text/css">
+	div{
+		position: absolute;
+		left: 50px;
+		top: 50px;
+		background-color:#f00;
+		width:90px;
+		height:20px;
+		padding:40px;
+	}
+</style>
+<script>
+	window.onload = function(){
+		var elDiv = document.getElementById("my-box");
+		elDiv.onmousedown = function(){
+			this.style.backgroundColor = "#00f";
+			this.innerText = "마우스를 떼세요";
+		};
 
-function onLoad() {
-	/*
-	document.getElementById("myBtn").onclick = function(){
-	   displayDate();
-	};
-	*/
-	
-	document.getElementById("myBtn").onclick = displayDate;
-}
+		elDiv.onmouseup = function(){
+			this.style.backgroundColor = "#f00";
+			this.innerText = "클릭하세요!";
+		};
+		
+		elDiv.onmouseover = function(){
+			randomX = 250;
+			randomY = 370;
 
-function displayDate(){
-   document.getElementById("demo").innerHTML = Date();
-}
+			this.style.left = randomX + "px";
+			this.style.top = randomY + "px";
+			console.log("mouseover");
+		};
+
+		elDiv.onmouseout = function(){
+			randomX = 50;
+			randomY = 50;
+
+			this.style.left = randomX + "px";
+			this.style.top = randomY + "px";
+			console.log("mouseout");
+		};
+	}
 </script>
 
 </head>
-
-<body onload="onLoad();">
-	<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
-	<button id="myBtn">Try it</button>
-	<p id="demo"></p>
+<body>
+<div id="my-box">
+	클릭하세요!
+</div>
 </body>
 </html>

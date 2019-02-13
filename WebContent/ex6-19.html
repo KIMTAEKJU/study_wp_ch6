@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function myFunction() {
+   var x = document.getElementById( "fname" );
+   x.value=x.value.toUpperCase();
+}
+
+function selectChanged(){
+	alert("!");
+}
+
+/* form validation(폼 유효성 체크)
+	
+	client: JavaScript -> UX(사용자 경험을 향상)
+	Server: Servlet(Controller) -> 보안(정보보호)
+
+	양쪽 다 반드시 해주어야 한다
+
+	ex) 실수로 아이디를 안적고 제출버튼누르면 다시 처음부터 다적어야함
+	그럴떄를 대비해서 자바스크립트로 체크
+
+	클라이언트에서 유효성체크(아이디가 비었거나, 이메일이 없거나 등 ) 해줬다고 
+	서블릿에서 유저 아이디 패스워드를 체크하는것을 뺴면안됨
+	
+	클라이언트에서 왜해주냐면 UX때문에 함 사용자가 불편하지않도록하기위해  
+
+	비었다면 제출이 안되도록해야함
+
+
+*/
+window.onload = function(){
+
+	document.getElementById("user-job").onchange = function(){
+		console.log(this.value);
+	};
+	document.getElementById("user-join-form").onsubmit = function(){
+
+	// form validation
+
+	// 1. 아이디
+	var elInput = document.getElementById("user-id");
+
+	if( elInput.value == "") // value라는 속성으로 디폴트값을 넣어줄수있다
+	{
+		alert("아이디는 필수 입력입니다.");
+		elInput.focus();
+		return false;
+	}
+
+	// 2. 비밀번호
+	var elPassword = document.getElementById("user-pwd");
+
+	if( elPassword.value == "")
+	{
+		alert("비밀번호는 필수 입력입니다.");
+		elPassword.focus();
+		return false;
+	}
+	console.log("ok");
+	return true; // false는 안넘어가고 true면 넘어감
+	};
+}
+
+
+</script>
+</head>
+<body>
+<form id="user-join-form" action="" method="post">
+	아이디: <input type="text" id="user-id" name="user-id">
+	<br>
+	<br>
+	
+	비밀번호: <input type="password" id="user-pwd" name="user-pwd">
+	<br>
+	<br>
+	
+	직업:
+	<select id="user-job">
+		<option>value1</option>
+		<option>value2</option>
+		<option>value3</option>
+		<option>value4</option>
+		<option>value5</option>
+	</select>
+	<br>
+	<br>
+	
+	<input type="submit" values="가입">
+	
+</form>
+
+</body>
+</html>

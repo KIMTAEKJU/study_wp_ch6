@@ -4,16 +4,36 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-var changeText = function(el){
-	el.innerHTML = "Ooops!";
-}
+	var onH1Clicked = function(){
+		var el = this;
+		el.innerHTML = "<strong>click</strong>";
+		el.style.color = "#f00";
+	};
+	//var h1El = document.getElementById("my-h1");
+	//console.log(`h1El : ${typeof h1El}`);
+	
+	window.onload = function(){
+		var h1El = document.getElementById("my-h1");
+		console.log(`h1El : ${typeof h1El}`);
+		// h1El.onclick = function(){
+		// 	console.log("click");
+		// };
+		h1El.onclick = onH1Clicked;
+	};
 </script>
 </head>
 <body>
-<!--
+	<!--
 <h1 onclick="this.innerHTML='Ooops!';">Click on this text!</h1>
 -->
-<h1 onclick="changeText(this)">Click on this text!</h1>
+	<h1 onclick="console.log('click');"
+		onmousedown="console.log('mousedown');"
+		onmouseup="console.log('mouseup');"
+		onmouseover="console.log('mouseover');"
+		onmouseout="console.log('mouseout');"
+		ondblclick="console.log('dblclick');">Click on this text!</h1>
+
+	<h1 id="my-h1">Click on this text!</h1>
 
 </body>
 </html>
